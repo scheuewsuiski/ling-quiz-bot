@@ -44,7 +44,8 @@ async def pitch_question(chat_id: int, context: ContextTypes.DEFAULT_TYPE, q, us
                 options=q["options"],
                 type=Poll.QUIZ,
                 correct_option_id=q["corr"],
-                is_anonymous=False
+                is_anonymous=False,
+                explanation=q["explanation"]
         )
     payload = {
         message.poll.id: {
