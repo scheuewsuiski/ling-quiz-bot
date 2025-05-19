@@ -33,11 +33,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     context.user_data['state'] = 'idle'
     await update.message.reply_text("Привет! 👋 Это бот-викторина, чтобы проверить твои знания в  лингвистике!\n\nНапиши /quiz чтобы начать викторину\n\nУдачи!")
 
-with open("test_q.json") as f:
-    the_file = json.load(f)
-quizzes = the_file["questions"]
+quizzes = []
 
-quiz_list = {"тестовый файл": "test_q.json", "второй файл": "second_q.json", "фонетика": "phonetics.json", "старослав": "ocs.json"}
+quiz_list = {"фонетика": "quizzes/phonetics.json", "старослав": "quizzes/ocs.json"}
 
 async def pitch_question(chat_id: int, context: ContextTypes.DEFAULT_TYPE, q, user_id):
     message = await context.bot.send_poll(
